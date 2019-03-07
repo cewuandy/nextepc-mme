@@ -16,22 +16,22 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: serviceone
+  name: nextepc-mme
   labels:
-    app: serviceone 
+    app: nextepc-mme 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: serviceone
+      app: nextepc-mme
   template:
     metadata:
       labels:
-        app: serviceone
+        app: nextepc-mme
     spec:
       containers:
-        - name: serviceone
-          image: cewuandy/serviceone-synchronizer
+        - name: nextepc-mme
+          image: cewuandy/nextepc-mme-synchronizer
           imagePullPolicy: Always
           volumeMounts:
             - name: certchain-volume
