@@ -3,10 +3,8 @@ option name = "nextepcmme";
 
 message NextEPCMME (Service){
     option verbose_name = "NextEPCMME";
-    required string name = 1 [help_text = "Name", max_length = 254, null = False, db_index = False, blank = False];
 }
 
 message NextEPCMMEInstance (ServiceInstance){
     option verbose_name = "NextEPCMMEInstance";
-    required string name = 1 [help_text = "Name", max_length = 254, null = False, db_index = False, blank = False];
 }
