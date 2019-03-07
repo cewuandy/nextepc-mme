@@ -16,18 +16,18 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: nextepc-mme
+  name: nextepc-mme-synchronizer
   labels:
-    app: nextepc-mme 
+    app: nextepc-mme-synchronizer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nextepc-mme
+      app: nextepc-mme-synchronizer
   template:
     metadata:
       labels:
-        app: nextepc-mme
+        app: nextepc-mme-synchronizer
     spec:
       containers:
         - name: nextepc-mme

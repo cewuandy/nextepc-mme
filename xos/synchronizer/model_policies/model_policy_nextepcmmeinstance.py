@@ -14,7 +14,7 @@ class NextEPCMMEInstancePolicy(Policy):
     model_name = "NextEPCMMEInstance"
 
     def handle_create(self, service_instance):
-        return self.handle_update(service_instance)
+        self.handle_update(service_instance)
 
     def handle_update(self, service_instance):
         owner = KubernetesService.objects.first()
@@ -23,7 +23,7 @@ class NextEPCMMEInstancePolicy(Policy):
 
         resource_definition = f.read()
         name="nextepc-mme-%s" % service_instance.id
-        instance = KubernetesResourceInstance(name=name, owner=owner, resource_definition=resource_definition,no_sync=False)
+        instance = KubernetesResourceInstance(name=name, owner=owner, resource_definition=resource_definition, no_sync=False)
 
         instance.save()
 

@@ -11,7 +11,7 @@ topology_template:
     nextepcmme:
       type: tosca.nodes.NextEPCMME
       properties:
-        name: nextepcmme-1
+        name: mme
       requirements:
         - site:
             node: mysite
