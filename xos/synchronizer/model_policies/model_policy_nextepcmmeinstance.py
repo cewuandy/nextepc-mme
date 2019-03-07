@@ -18,10 +18,9 @@ class NextEPCMMEInstancePolicy(Policy):
 
     def handle_update(self, service_instance):
         owner = KubernetesService.objects.first()
-        template = os.path.join(os.path.abspath(os.path.dirname(os.path.realpath(__file__))), "nextepc-mme.yaml")
-        f = open(template).read()
+        file = os.path.join(os.path.abspath(os.path.dirname(os.path.realpath(__file__))), "nextepc-mme.yaml")
+        resource_definition = jinja2.Template(open(file).read())
 
-        resource_definition = f.read()
         name="nextepc-mme-%s" % service_instance.id
         instance = KubernetesResourceInstance(name=name, owner=owner, resource_definition=resource_definition, no_sync=False)
 
