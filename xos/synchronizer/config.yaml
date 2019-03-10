@@ -18,7 +18,8 @@ name: nextepcmme
 core_version: ">=2.2.1"
 accessor:
   username: admin@opencord.org
-  password: "@/opt/xos/services/nextepcmme/credentials/admin@opencord.org"
+  password: letmein
+  endpoint: xos-core:50051
 required_models:
   - SimpleExampleService
   - NextEPCMME
