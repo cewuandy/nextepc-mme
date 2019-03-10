@@ -1,8 +1,8 @@
 import base64
 import jinja2
 import json
-from synchronizers.new_base.modelaccessor import *
-from synchronizers.new_base.policy import Policy
+import os
+from xossynchronizer.model_policies.policy import Policy
 
 from xosconfig import Config
 from multistructlog import create_logger
