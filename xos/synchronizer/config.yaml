@@ -15,7 +15,7 @@
 
 
 name: nextepcmme
-core_version: ">=2.2.1"
+core_version: "2.2.1"
 accessor:
   username: admin@opencord.org
   password: letmein
