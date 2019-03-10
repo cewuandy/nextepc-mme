@@ -23,6 +23,7 @@ required_models:
   - SimpleExampleService
   - NextEPCMME
   - ServiceDependency
+  - KubernetesResourceInstance
   - KubernetesService
   - KubernetesServiceInstance
   - KubernetesConfigMap
