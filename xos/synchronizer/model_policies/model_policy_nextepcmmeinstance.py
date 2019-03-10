@@ -1,6 +1,7 @@
 import base64
 import jinja2
 import json
+import yaml
 import os
 from xossynchronizer.model_policies.policy import Policy
 
