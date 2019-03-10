@@ -16,25 +16,22 @@
 
 import os
 import sys
-from synchronizers.new_base.syncstep import SyncStep
-from synchronizers.new_base.modelaccessor import *
+from xossynchronizer.steps.syncstep import SyncStep
 from xosconfig import Config
 from multistructlog import create_logger
 
 log = create_logger(Config().get('logging'))
 
-
-class SyncNextEPCMMEInstance(SyncStep):
-
-    provides = [NextEPCMMEInstance]
-
-    observes = NextEPCMMEInstance
+class SyncNextEPCMME(SyncStep):
+    observes = "NextEPCMME"
+    requested_interval = 0
 
     def __init__(self, *args, **kwargs):
-        super(SyncNextEPCMMEInstance, self).__init__(*args, **kwargs)
+        super(SyncNextEPCMME, self).__init__(*args, **kwargs)
 
     def sync_record(self, o):
-        log.info("SimpleProviderService has been updated!")
-
-    def delete_record(self, o):
-        log.info("SimpleProviderService has been deleted!")
+        # There's nothing to do at this time. Configuration of ExampleServiceInstance is handled by Kubernetes
+        # through config maps, and that all happens in the model policy.
+        #
+        # TODO(smbaker): Consider deleting this sync step
+        pass

@@ -15,24 +15,23 @@
 
 
 name: nextepcmme
+core_version: ">=2.2.1"
 accessor:
-  username: admin@opencord.org
-  password: letmein
-  endpoint: xos-core:50051
+  username: xosadmin@opencord.org
+  password: "@/opt/xos/services/nextepcmme/credentials/xosadmin@opencord.org"
 required_models:
+  - SimpleExampleService
   - NextEPCMME
-  - NextEPCMMEInstance
   - ServiceDependency
-  - KubernetesResourceInstance
   - KubernetesService
   - KubernetesServiceInstance
   - KubernetesConfigMap
   - KubernetesSecret
   - KubernetesConfigVolumeMount
   - KubernetesSecretVolumeMount
-
 dependency_graph: "/opt/xos/synchronizers/nextepcmme/model-deps"
 steps_dir: "/opt/xos/synchronizers/nextepcmme/steps"
+event_steps_dir: "/opt/xos/synchronizers/nextepcmme/event_steps"
 sys_dir: "/opt/xos/synchronizers/nextepcmme/sys"
 model_policies_dir: "/opt/xos/synchronizers/nextepcmme/model_policies"
 models_dir: "/opt/xos/synchronizers/nextepcmme/models"
