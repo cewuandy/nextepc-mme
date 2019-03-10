@@ -20,10 +20,10 @@ accessor:
   password: letmein
   endpoint: xos-core:50051
 required_models:
-  - SimpleExampleService
   - NextEPCMME
-  - ServiceDependency
+  - NextEPCMMEInstance
   - KubernetesResourceInstance
+  - ServiceDependency
   - KubernetesService
   - KubernetesServiceInstance
   - KubernetesConfigMap
