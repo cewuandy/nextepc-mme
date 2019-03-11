@@ -25,7 +25,7 @@ from multistructlog import create_logger
 log = create_logger(Config().get('logging'))
 
 class SimpleProviderServiceInstancePolicy(Policy):
-    model_name = "SimpleProviderServiceInstance"
+    model_name = "NextEPCMMEInstance"
 
     def handle_create(self, service_instance):
         log.info("handle_create SimpleProviderServiceInstance")
