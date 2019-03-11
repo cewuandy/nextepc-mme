@@ -43,7 +43,6 @@ class NextEPCMMEInstancePolicy(Policy):
             except yaml.YAMLError as exc:
                 resource_definition="{}"
                 print(exc)
-        input_file.close()
 
         name="MME-%s" % service_instance.id
         instance = KubernetesResourceInstance(name=name, owner=owner, resource_definition=resource_definition, no_sync=False)
