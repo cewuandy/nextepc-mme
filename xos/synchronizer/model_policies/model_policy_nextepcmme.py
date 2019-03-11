@@ -28,12 +28,12 @@ class NextEPCMMEInstancePolicy(Policy):
     model_name = "NextEPCMMEInstance"
 
     def handle_create(self, service_instance):
-        log.info("handle_create SimpleProviderServiceInstance")
+        log.info("handle_create NextEPCMMEInstance")
         return self.handle_update(service_instance)
 
 
     def handle_update(self, service_instance):
-        log.info("handle_update SimpleProviderServiceInstance")
+        log.info("handle_update NextEPCMMEInstance")
         owner = KubernetesService.objects.first()
         # file = os.path.join(os.path.abspath(os.path.dirname(os.path.realpath(__file__))), "nextepc-mme.yaml")
         resource_definition = "{\"test\",\"123\"}"
@@ -44,7 +44,7 @@ class NextEPCMMEInstancePolicy(Policy):
         instance.save()
 
     def handle_delete(self, service_instance):
-        log.info("handle_delete SimpleProviderServiceInstance")
+        log.info("handle_delete NextEPCMMEInstance")
         service_instance.compute_instance.delete()
         service_instance.compute_instance = None
         # TODO: I'm not sure we can save things that are being deleted...
