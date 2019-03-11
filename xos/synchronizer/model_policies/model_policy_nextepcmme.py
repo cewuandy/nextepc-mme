@@ -19,6 +19,7 @@ import json
 import yaml
 import os
 from xossynchronizer.model_policies.policy import Policy
+from xossynchronizer.modelaccessor import KubernetesResourceInstance
 
 from xosconfig import Config
 from multistructlog import create_logger
