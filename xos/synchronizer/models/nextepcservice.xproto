@@ -3,7 +3,7 @@ option name = "nextepcservice";
 
 message NextEPCService (Service){
     option verbose_name = "NextEPCService";
-    required string component_type = 1 [
+    required string component_type = 4 [
         help_text = "Core Component Type",
         choices = "(('mme', 'MME'), ('hss', 'HSS'), ('sgw', 'SGW')), ('pgw', 'PGW')), ('pcrf', 'PCRF'))",
         db_index = False,
@@ -12,7 +12,7 @@ message NextEPCService (Service){
 
 message NextEPCServiceInstance (ServiceInstance){
     option verbose_name = "NextEPCServiceInstance";
-    required string type = 1 [
+    required string type = 4 [
              help_text = "Core Component Type",
              choices = "(('mme', 'MME'), ('hss', 'HSS'), ('sgw', 'SGW')), ('pgw', 'PGW')), ('pcrf', 'PCRF'))",
              db_index = False,
