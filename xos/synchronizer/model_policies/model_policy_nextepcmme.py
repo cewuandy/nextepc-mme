@@ -39,7 +39,7 @@ class NextEPCMMEInstancePolicy(Policy):
         resource_definition = "{\"test\",\"123\"}"
 
         name="MME-%s" % service_instance.id
-        instance = self.model_accessor.KubernetesResourceInstance(name=name, owner=owner, resource_definition=resource_definition, no_sync=False)
+        instance = KubernetesResourceInstance(name=name, owner=owner, resource_definition=resource_definition, no_sync=False)
 
         instance.save()
 
