@@ -40,6 +40,7 @@ class NextEPCMMEInstancePolicy(Policy):
         with open(input_file, 'r') as stream:
             try:
                 resource_definition=json.dumps(yaml.load(stream), sort_keys=True, indent=2)
+                stream.close()
             except yaml.YAMLError as exc:
                 resource_definition="{}"
                 print(exc)
