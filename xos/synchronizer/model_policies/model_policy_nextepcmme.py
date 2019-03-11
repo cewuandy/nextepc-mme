@@ -16,6 +16,7 @@
 import base64
 import jinja2
 import json
+import yaml
 from synchronizers.new_base.modelaccessor import *
 from synchronizers.new_base.policy import Policy
 
@@ -35,8 +36,14 @@ class NextEPCMMEInstancePolicy(Policy):
     def handle_update(self, service_instance):
         log.info("handle_update NextEPCMMEInstance")
         owner = KubernetesService.objects.first()
-        # file = os.path.join(os.path.abspath(os.path.dirname(os.path.realpath(__file__))), "nextepc-mme.yaml")
-        resource_definition = "{\"test\",\"123\"}"
+        input_file=os.path.join(os.path.abspath(os.path.dirname(os.path.realpath(__file__))), "nextepc-mme.yaml")
+        with open(input_file, 'r') as stream:
+            try:
+                resource_definition=json.dumps(yaml.load(stream), sort_keys=True, indent=2)
+            except yaml.YAMLError as exc:
+                resource_definition="{}"
+                print(exc)
+        input_file.close()
 
         name="MME-%s" % service_instance.id
         instance = KubernetesResourceInstance(name=name, owner=owner, resource_definition=resource_definition, no_sync=False)
@@ -47,5 +54,4 @@ class NextEPCMMEInstancePolicy(Policy):
         log.info("handle_delete NextEPCMMEInstance")
         service_instance.compute_instance.delete()
         service_instance.compute_instance = None
-        # TODO: I'm not sure we can save things that are being deleted...
         service_instance.save(update_fields=["compute_instance"])
