@@ -32,6 +32,7 @@ class NextEPCMMEInstancePolicy(Policy):
         self.handle_update(service_instance)
 
     def handle_update(self, service_instance):
+        log.info("handle_update")
         owner = KubernetesService.objects.first()
         # file = os.path.join(os.path.abspath(os.path.dirname(os.path.realpath(__file__))), "nextepc-mme.yaml")
         resource_definition = "{\"test\",\"123\"}"
