@@ -19,7 +19,7 @@ import json
 import yaml
 import os
 from xossynchronizer.model_policies.policy import Policy
-from synchronizers.new_base.modelaccessor import *
+# from synchronizers.new_base.modelaccessor import *
 
 from xosconfig import Config
 from multistructlog import create_logger
@@ -39,7 +39,7 @@ class NextEPCMMEInstancePolicy(Policy):
         resource_definition = "{\"test\",\"123\"}"
 
         name="MME-%s" % service_instance.id
-        instance = KubernetesResourceInstance(name=name, owner=owner, resource_definition=resource_definition, no_sync=False)
+        instance = self.model_accessor.KubernetesResourceInstance(name=name, owner=owner, resource_definition=resource_definition, no_sync=False)
 
         instance.save()
 
