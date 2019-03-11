@@ -12,20 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# docker build -t xosproject/nextepcmme-synchronizer:candidate -f Dockerfile.synchronizer .
+# docker build -t xosproject/nextepcservice-synchronizer:candidate -f Dockerfile.synchronizer .
 
-# xosproject/nextepcmme-synchronizer
+# xosproject/nextepcservice-synchronizer
 
 FROM xosproject/xos-synchronizer-base:2.2.5
 
-COPY xos/synchronizer /opt/xos/synchronizers/nextepcmme
-COPY VERSION /opt/xos/synchronizers/nextepcmme/
+COPY xos/synchronizer /opt/xos/synchronizers/nextepcservice
+COPY VERSION /opt/xos/synchronizers/nextepcservice/
 
-WORKDIR "/opt/xos/synchronizers/nextepcmme"
+WORKDIR "/opt/xos/synchronizers/nextepcservice"
 
 # Label image
 ARG org_label_schema_schema_version=1.0
-ARG org_label_schema_name=nextepcmme-synchronizer
+ARG org_label_schema_name=nextepcservice-synchronizer
 ARG org_label_schema_version=unknown
 ARG org_label_schema_vcs_url=unknown
 ARG org_label_schema_vcs_ref=unknown
@@ -52,4 +52,4 @@ LABEL org.label-schema.schema-version=$org_label_schema_schema_version \
       org.opencord.component.xos.vcs-url=$org_opencord_component_xos_vcs_url \
       org.opencord.component.xos.vcs-ref=$org_opencord_component_xos_vcs_ref
 
-CMD ["/usr/bin/python", "/opt/xos/synchronizers/nextepcmme/nextepcmme-synchronizer.py"]
+CMD ["/usr/bin/python", "/opt/xos/synchronizers/nextepcservice/nextepcservice-synchronizer.py"]

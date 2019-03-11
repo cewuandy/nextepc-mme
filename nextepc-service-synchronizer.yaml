@@ -16,22 +16,22 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: nextepc-mme-synchronizer
+  name: nextepc-service-synchronizer
   labels:
-    app: nextepc-mme-synchronizer
+    app: nextepc-service-synchronizer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nextepc-mme-synchronizer
+      app: nextepc-service-synchronizer
   template:
     metadata:
       labels:
-        app: nextepc-mme-synchronizer
+        app: nextepc-service-synchronizer
     spec:
       containers:
-        - name: nextepc-mme
-          image: cewuandy/nextepc-mme-synchronizer
+        - name: nextepc-service
+          image: cewuandy/nextepc-service-synchronizer
           imagePullPolicy: Always
           volumeMounts:
             - name: certchain-volume

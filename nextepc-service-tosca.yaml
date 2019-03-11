@@ -1,17 +1,17 @@
 tosca_definitions_version: tosca_simple_yaml_1_0
 
 imports:
-  - custom_types/nextepcmme.yaml
+  - custom_types/nextepcservice.yaml
   - custom_types/kubernetesresourceinstance.yaml
 
 description: Configures the simple example service
 
 topology_template:
   node_templates:
-    nextepcmme:
-      type: tosca.nodes.NextEPCMME
+    nextepcservice:
+      type: tosca.nodes.NextEPCService
       properties:
-        name: mme
+        name: service
       requirements:
         - site:
             node: mysite
@@ -23,5 +23,5 @@ topology_template:
             node: apache_image
             relationship: tosca.relationships.BelongsToOne
         - service:
-            node: nextepcmme
+            node: nextepcservice
             relationship: tosca.relationships.BelongsToOne
