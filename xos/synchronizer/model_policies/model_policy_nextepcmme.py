@@ -16,24 +16,24 @@
 import base64
 import jinja2
 import json
-import yaml
-import os
-from xossynchronizer.model_policies.policy import Policy
-# from synchronizers.new_base.modelaccessor import *
+from synchronizers.new_base.modelaccessor import *
+from synchronizers.new_base.policy import Policy
 
 from xosconfig import Config
 from multistructlog import create_logger
 
 log = create_logger(Config().get('logging'))
 
-class NextEPCMMEInstancePolicy(Policy):
-    model_name = "NextEPCMMEInstance"
+class SimpleProviderServiceInstancePolicy(Policy):
+    model_name = "SimpleProviderServiceInstance"
 
     def handle_create(self, service_instance):
-        self.handle_update(service_instance)
+        log.info("handle_create SimpleProviderServiceInstance")
+        return self.handle_update(service_instance)
+
 
     def handle_update(self, service_instance):
-        log.info("handle_update")
+        log.info("handle_update SimpleProviderServiceInstance")
         owner = KubernetesService.objects.first()
         # file = os.path.join(os.path.abspath(os.path.dirname(os.path.realpath(__file__))), "nextepc-mme.yaml")
         resource_definition = "{\"test\",\"123\"}"
@@ -44,8 +44,7 @@ class NextEPCMMEInstancePolicy(Policy):
         instance.save()
 
     def handle_delete(self, service_instance):
-        log.info("handle_delete")
-        log.info("has a compute_instance")
+        log.info("handle_delete SimpleProviderServiceInstance")
         service_instance.compute_instance.delete()
         service_instance.compute_instance = None
         # TODO: I'm not sure we can save things that are being deleted...
