@@ -8,8 +8,7 @@ message NextEPCService (Service){
              blank = True,
              choices = "(('mme', 'MME'), ('hss', 'HSS'), ('sgw', 'SGW'), ('pgw', 'PGW'), ('pcrf', 'PCRF'))",
              db_index = False,
-             max_length=32,
-             null = True];
+             max_length=32];
 }
 
 message NextEPCServiceInstance (ServiceInstance){
