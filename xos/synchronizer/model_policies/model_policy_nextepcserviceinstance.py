@@ -33,7 +33,7 @@ class NextEPCServiceInstancePolicy(Policy):
                 resource_definition = "{}"
                 print(exc)
 
-        name = "nextepc-" + + "%s" % service_instance.id
+        name = "nextepc-" + type + "%s" % service_instance.id
         instance = KubernetesResourceInstance(name=name, owner=owner,
                                               resource_definition=resource_definition,
                                               no_sync=False)
